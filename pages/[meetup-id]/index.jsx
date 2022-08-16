@@ -38,7 +38,7 @@ export const getStaticPaths = async () => {
   client.close()
 
   return {
-    fallback: false, //true if every page needs to be pre-generated dynamically
+    fallback: 'blocking', //true or blocking if every page needs to be pre-generated dynamically
     paths: meetups.map((meetup) => ({
       params: { ['meetup-id']: meetup._id.toString() },
     })),
